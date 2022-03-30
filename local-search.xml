@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>React Hooks</title>
+    <link href="/post/react-hooks.html"/>
+    <url>/post/react-hooks.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h3 id="为什么需要-hooks-它解决了什么问题"><a href="#为什么需要-hooks-它解决了什么问题" class="headerlink" title="为什么需要 hooks ? 它解决了什么问题 ?"></a>为什么需要 hooks ? 它解决了什么问题 ?</h3>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>React，Hooks</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello_AlexCc</title>
+    <link href="/post/Just-Run.html"/>
+    <url>/post/Just-Run.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><blockquote><p>This is my first Blog.</p></blockquote><h3 id="No-2"><a href="#No-2" class="headerlink" title="No.2"></a>No.2</h3><figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">if</span> (<span class="hljs-literal">true</span>) &#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;Hello_AlexCc!&quot;</span>)<br>&#125;<br><br><span class="hljs-keyword">return</span> <span class="hljs-string">&quot;ヾ(◍°∇°◍)ﾉﾞ&quot;</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>ME</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
