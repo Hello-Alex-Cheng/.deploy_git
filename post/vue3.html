@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/img/vue3.jpg">
 <meta property="article:published_time" content="2022-12-01T10:09:04.000Z">
-<meta property="article:modified_time" content="2022-12-15T08:43:49.375Z">
+<meta property="article:modified_time" content="2022-12-23T14:57:41.953Z">
 <meta property="article:author" content="Hello_AlexCc">
 <meta property="article:tag" content="JS,Vue3">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      12k 字
+      13k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      104 分钟
+      107 分钟
     </span>
   
 
@@ -241,19 +241,24 @@
             
             <div class="markdown-body">
               <h1 id="ref-和-reactive-使用上有什么区别"><a href="#ref-和-reactive-使用上有什么区别" class="headerlink" title="ref 和 reactive 使用上有什么区别?"></a>ref 和 reactive 使用上有什么区别?</h1><ol>
-<li><p>ref 支持所有的类型，reactive 只接收引用类型（Array/Object/Map/Set）</p>
-</li>
-<li><p>ref 取值和赋值都需要加 .value，reactive 不需要 .value</p>
-</li>
-<li><p>reactive 不能直接赋值，否则会破坏响应式（proxy）</p>
-<p>如果要改变数组，可以通过 push 方法，将要 push 的数组结构 (xx.push(…arr))</p>
-</li>
+<li>ref 支持所有的类型，reactive 只接收引用类型（Array/Object/Map/Set）</li>
+<li>ref 取值和赋值都需要加 .value，reactive 不需要 .value</li>
+<li>reactive 不能直接赋值，否则会破坏响应式（proxy）</li>
 </ol>
+<p>如果要改变数组，可以通过 push 方法，将要 push 的数组结构 (xx.push(…arr))</p>
+<h2 id="如何抉择呢？"><a href="#如何抉择呢？" class="headerlink" title="如何抉择呢？"></a>如何抉择呢？</h2><p>因为社区大佬 <code>basvanmeurs</code>提出了一个新的 PR，大概就是重构了响应式的部分内容，由于重构内容过于庞大，所以一直等到 2021 年 8 月 5 号，伴随着 Vue3.2 的发布，尤大大才合并对应的代码。</p>
+<p><code>ref</code> 被重构之后，有了更高效的实现（提升了 约 260% 的读取速度 / 约 50% 的写入速度），依赖跟踪速度提高了约 40%，内存使用量减少了约 17%，毫无疑问这是一个伟大的变化。</p>
+<p>那么，在以后的使用过程当中，能使用 <code>ref</code> 就用 <code>ref</code>吧，毕竟它的性能得到了如此大的提升。</p>
 <h1 id="defineProps-如何定义默认值？"><a href="#defineProps-如何定义默认值？" class="headerlink" title="defineProps 如何定义默认值？"></a>defineProps 如何定义默认值？</h1><blockquote>
 <p>针对类型的 defineProps 声明的不足之处在于，它没有可以给 props 提供默认值的方式。</p>
 </blockquote>
 <p>使用TS 特有的默认值方式 <code>withDefaults</code> 函数，无须引入开箱即用，接受一个props函数第二个参数是一个对象设置默认值。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> interface <span class="hljs-title class_">Props</span> &#123;<br>  msg?: string<br>  labels?: string[]<br>&#125;<br><br><span class="hljs-keyword">const</span> props = <span class="hljs-title function_">withDefaults</span>(defineProps&lt;<span class="hljs-title class_">Props</span>&gt;(), &#123;<br>  <span class="hljs-attr">msg</span>: <span class="hljs-string">&#x27;hello&#x27;</span>,<br>  <span class="hljs-attr">labels</span>: <span class="hljs-function">() =&gt;</span> [<span class="hljs-string">&#x27;one&#x27;</span>, <span class="hljs-string">&#x27;two&#x27;</span>]<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<p><strong>注意</strong></p>
+<p>如果使用 withDefaults 报错 <code>&#39;withDefaults&#39; is not defined</code>，我们修改 <code>.eslintrc</code> 文件</p>
+<p>添加如下配置代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-attr">globals</span>: &#123;<br>    <span class="hljs-attr">withDefaults</span>: <span class="hljs-string">&#x27;readonly&#x27;</span><br>&#125;,<br></code></pre></td></tr></table></figure>
 
 <h1 id="动态组件"><a href="#动态组件" class="headerlink" title="动态组件"></a>动态组件</h1><blockquote>
 <p>component</p>
