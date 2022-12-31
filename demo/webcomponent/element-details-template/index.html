@@ -16,22 +16,39 @@
   <meta name="author" content="Hello_AlexCc">
   <meta name="keywords" content="Full stack engineer">
   
-    <meta name="description" content="Technology Blog">
+    <meta name="description" content="Document        element-details-template              details {font-family: &quot;Open Sans Light&quot;,Helvetica,Arial}     .name {font-weight: bold; color: #217ac0; font-size: 120%}     h4 { mar">
 <meta property="og:type" content="website">
-<meta property="og:title" content="标签 - 工程化,Vue3,Config">
-<meta property="og:url" content="http://yoursite.com/tags/%E5%B7%A5%E7%A8%8B%E5%8C%96-Vue3-Config/index.html">
+<meta property="og:title" content="page.title">
+<meta property="og:url" content="http://yoursite.com/demo/webcomponent/element-details-template/index.html">
 <meta property="og:site_name" content="Hello_AlexCc">
-<meta property="og:description" content="Technology Blog">
+<meta property="og:description" content="Document        element-details-template              details {font-family: &quot;Open Sans Light&quot;,Helvetica,Arial}     .name {font-weight: bold; color: #217ac0; font-size: 120%}     h4 { mar">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-27T03:07:36.904Z">
+<meta property="article:modified_time" content="2022-12-27T03:07:36.904Z">
 <meta property="article:author" content="Hello_AlexCc">
 <meta property="article:tag" content="Full stack engineer">
 <meta name="twitter:card" content="summary_large_image">
   
   
-  <title>标签 - 工程化,Vue3,Config - Hello_AlexCc</title>
+  <title>page.title - Hello_AlexCc</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -58,7 +75,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">
@@ -159,17 +176,13 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="标签 - 工程化,Vue3,Config">
+            <span class="h2" id="subtitle" title="page.title">
               
             </span>
 
             
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -187,25 +200,71 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 1 篇文章</p>
+<article class="page-content">
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="main.js"></script>
+</head>
+<body>
+  <h1>element-details-template</h1>
+
+  <template id="element-details-template">
+    <style>
+    details {font-family: "Open Sans Light",Helvetica,Arial}
+    .name {font-weight: bold; color: #217ac0; font-size: 120%}
+    h4 { margin: 10px 0 -8px 0; }
+    h4 span { background: #217ac0; padding: 2px 6px 2px 6px }
+    h4 span { border: 1px solid #cee9f9; border-radius: 4px }
+    h4 span { color: white }
+    .attributes { margin-left: 22px; font-size: 90% }
+    .attributes p { margin-left: 16px; font-style: italic }
+
+
+    dl { margin-left: 6px; }
+    dt { font-weight: bold; color: #217ac0; font-size: 110% }
+    dt { font-family: Consolas, "Liberation Mono", Courier }
+    dd { margin-left: 16px }
+    </style>
+
+    <details>
+      <summary>
+        <span>
+          <code class="name">&lt;<slot name="element-name">NEED NAME</slot>&gt;</code>
+          <i class="desc"><slot name="description">NEED DESCRIPTION</slot></i>
+        </span>
+      </summary>
+      <div class="attributes">
+        <h4><span>Attributes</span></h4>
+        <slot name="attributes"><p>None</p></slot>
+      </div>
+    </details>
+    <hr>
+  </template>
+
   <hr>
+
+  <details-element>
+    <p slot="element-name">Hello_AlexCc</p>
+    <p slot="description">A mechanism for holding client-
+      side content that is not to be rendered when a page is
+      loaded but may subsequently be instantiated during
+      runtime using JavaScript.</p>
+      <dl slot="attributes">
+        <dt>name</dt>
+        <dd>The name of the slot.</dd>
+      </dl>
+  </details-element>
+
+</body>
+</html>
+
   
-  
-    
-      
-      <p class="h5">2022</p>
-    
-    <a href="/post/vue3-project-generalLogin.html" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Vue3项目实战(三)：登录/请求模块/鉴权</span>
-      <time style="float: right;">12-23</time>
-    </a>
-  
-</div>
-
-
-
-
+</article>
 
               </div>
             </div>
@@ -294,6 +353,19 @@
   
 
 
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
 
 
 
