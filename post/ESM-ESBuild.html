@@ -18,21 +18,21 @@
   
     <meta name="description" content="继 CommonJS、AMD、CMD 几种模块化规范由社区提出后，ES 2015（ES6）在语言层面上实现了模块功能，且实现简单，可以替代CommonJS和AMD规范，成为在服务器和浏览器通用的解决方案。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ESM&#x2F;ESBuild">
+<meta property="og:title" content="ES Module &#x2F; Babel">
 <meta property="og:url" content="http://yoursite.com/post/ESM-ESBuild.html">
 <meta property="og:site_name" content="Hello_AlexCc">
 <meta property="og:description" content="继 CommonJS、AMD、CMD 几种模块化规范由社区提出后，ES 2015（ES6）在语言层面上实现了模块功能，且实现简单，可以替代CommonJS和AMD规范，成为在服务器和浏览器通用的解决方案。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/img/modules.jpg">
 <meta property="article:published_time" content="2022-09-13T09:11:35.000Z">
-<meta property="article:modified_time" content="2023-05-12T12:17:13.035Z">
+<meta property="article:modified_time" content="2023-05-13T13:00:07.119Z">
 <meta property="article:author" content="Hello_AlexCc">
-<meta property="article:tag" content="ESM ESModule ESBuild">
+<meta property="article:tag" content="ESM、babel">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://yoursite.com/img/modules.jpg">
   
   
-  <title>ESM/ESBuild - Hello_AlexCc</title>
+  <title>ES Module / Babel - Hello_AlexCc</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
 
@@ -178,7 +178,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="ESM/ESBuild">
+            <span class="h2" id="subtitle" title="ES Module / Babel">
               
             </span>
 
@@ -237,7 +237,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">ESM/ESBuild</h1>
+            <h1 style="display: none">ES Module / Babel</h1>
             
             <div class="markdown-body">
               <h1 id="Module"><a href="#Module" class="headerlink" title="Module"></a>Module</h1><p>在ES6之前，社区制定了一些模块加载方案，最主要的有CommonJS和AMD两种。前者用于服务器，后者用于浏览器。</p>
@@ -553,13 +553,6 @@
 <p>在插件中，我们可以通过 <code>state.opts</code> 获取到参数：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// plugin.js</span><br><br>...<br><span class="hljs-title class_">VariableDeclaration</span>(path, state) &#123;<br>  <span class="hljs-keyword">if</span> (state.<span class="hljs-property">opts</span>.<span class="hljs-property">ES5</span> === <span class="hljs-literal">true</span> &amp;&amp; [<span class="hljs-string">&#x27;let&#x27;</span>, <span class="hljs-string">&#x27;const&#x27;</span>].<span class="hljs-title function_">includes</span>(path.<span class="hljs-property">node</span>.<span class="hljs-property">kind</span>)) &#123;<br>    path.<span class="hljs-property">node</span>.<span class="hljs-property">kind</span> = <span class="hljs-string">&#x27;var&#x27;</span><br>  &#125;<br>&#125;,<br>...<br></code></pre></td></tr></table></figure>
 
-<h1 id="ESBuild"><a href="#ESBuild" class="headerlink" title="ESBuild"></a>ESBuild</h1><blockquote>
-<p><a target="_blank" rel="noopener" href="https://esbuild.github.io/api/">https://esbuild.github.io/api/</a></p>
-</blockquote>
-<blockquote>
-<p>介绍: <a target="_blank" rel="noopener" href="https://juejin.cn/post/6918927987056312327">https://juejin.cn/post/6918927987056312327</a></p>
-</blockquote>
-
             </div>
             <hr>
             <div>
@@ -569,7 +562,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/ESM-ESModule-ESBuild/">ESM ESModule ESBuild</a>
+                      <a class="hover-with-bg" href="/tags/ESM%E3%80%81babel/">ESM、babel</a>
                     
                   </div>
                 
