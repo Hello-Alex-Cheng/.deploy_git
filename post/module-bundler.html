@@ -25,7 +25,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://yoursite.com/img/webpack.jpg">
 <meta property="article:published_time" content="2023-05-13T12:49:51.000Z">
-<meta property="article:modified_time" content="2023-05-13T12:58:19.869Z">
+<meta property="article:modified_time" content="2023-05-14T03:33:30.179Z">
 <meta property="article:author" content="Hello_AlexCc">
 <meta property="article:tag" content="Webpack、ESBuild、Rollup、Vite、Parcel">
 <meta name="twitter:card" content="summary_large_image">
@@ -199,7 +199,7 @@
   
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      22k 字
+      25k 字
     </span>
   
 
@@ -208,7 +208,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      184 分钟
+      212 分钟
     </span>
   
 
@@ -240,19 +240,21 @@
             <h1 style="display: none">模块化打包器</h1>
             
             <div class="markdown-body">
-              <h1 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h1><blockquote>
+              <h1 id="Webpack5"><a href="#Webpack5" class="headerlink" title="Webpack5"></a>Webpack5</h1><blockquote>
 <p>找出模块之间的依赖关系，按照一定的规则把这些模块组织、合并为一个JavaScript（以下简写为JS）文件。</p>
 </blockquote>
 <p>Webpack认为一切都是模块，如JS文件、CSS文件、jpg和png图片等都是模块。Webpack会把所有这些模块都合并为一个JS文件，这是它最本质的工作。</p>
 <p>当然，我们可能并不想让它把这些模块都合并成一个JS文件，这时我们可以通过一些 <code>规则或工具</code> 来改变它最终打包生成的文件。</p>
 <h2 id="webpack-amp-webpack-cli"><a href="#webpack-amp-webpack-cli" class="headerlink" title="webpack &amp; webpack-cli"></a>webpack &amp; webpack-cli</h2><p>webpack是Webpack核心npm包</p>
 <p>webpack-cli是命令行运行webpack命令所需的npm包</p>
+<figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-string">&quot;webpack&quot;</span>: <span class="hljs-string">&quot;^5.82.1&quot;</span>,<br><span class="hljs-string">&quot;webpack-cli&quot;</span>: <span class="hljs-string">&quot;^5.1.1&quot;</span>,<br><span class="hljs-string">&quot;webpack-dev-server&quot;</span>: <span class="hljs-string">&quot;^4.15.0&quot;</span><br></code></pre></td></tr></table></figure>
+
 <h2 id="资源拆分"><a href="#资源拆分" class="headerlink" title="资源拆分"></a>资源拆分</h2><p>我们可以把所有模块打包成一个 js 文件，但是，这样就会导致 js 过于庞大，我们希望可以将其拆分成JS、CSS和图片等资源。</p>
 <p>Webpack提供了对拆分功能的支持，在构建的时候，可以通过Webpack的预处理器和插件等进行干预，把原本要打包成的一个.js文件拆分成JS、CSS和图片等资源。</p>
 <h2 id="打包模式"><a href="#打包模式" class="headerlink" title="打包模式"></a>打包模式</h2><p>Webpack的打包模式共有三种：production、development和none，这三种模式是通过mode参数来指定的。</p>
 <p>production和development这两种模式会分别按照线上生产环境和本地开发环境进行一些优化处理，而none模式会保留原始的打包结果。</p>
 <h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>Webpack默认的配置文件是项目根目录下的 <code>webpack.config.js</code> 文件，在我们执行<code>npx webpack</code>命令的时候，Webpack会自动寻找该文件并使用其配置信息进行打包，如果找不到该文件就使用默认参数打包。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></div></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;none&#x27;</span>, <span class="hljs-comment">// 原模原样输出代码</span><br>  <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;./index.js&#x27;</span>,<br>  <span class="hljs-attr">output</span>: &#123;<br>    <span class="hljs-attr">path</span>: path.<span class="hljs-title function_">resolve</span>(__dirname, <span class="hljs-string">&#x27;dist&#x27;</span>), <span class="hljs-comment">// __dirname 是 nodejs 全局变量，表示当前文件的路径，使用 resolve 拼接</span><br>    <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;bundle.js&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">mode</span>: <span class="hljs-string">&#x27;none&#x27;</span>, <span class="hljs-comment">// 原模原样输出代码</span><br>  <span class="hljs-attr">entry</span>: <span class="hljs-string">&#x27;./index.js&#x27;</span>,<br>  <span class="hljs-attr">output</span>: &#123;<br>    <span class="hljs-attr">path</span>: path.<span class="hljs-title function_">resolve</span>(__dirname, <span class="hljs-string">&#x27;dist&#x27;</span>), <span class="hljs-comment">// __dirname 是 nodejs 全局变量，表示当前文件的路径，使用 resolve 拼接</span><br>    <span class="hljs-attr">filename</span>: <span class="hljs-string">&#x27;bundle.js&#x27;</span><br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>我们创建两个 js 文件，一个是 index.js，一个是 test.js。</p>
 <p>然后在 test.js 中创建几个变量和方法，并通过 export 导出，index.js 导入，执行如下命令。</p>
@@ -396,7 +398,7 @@
 
 <p>重新打包，这时css图片就能正常加载了，而且 dist 目录下，也只有一张图片的资源。</p>
 <h2 id="webpack-插件"><a href="#webpack-插件" class="headerlink" title="webpack 插件"></a>webpack 插件</h2><p>插件是在Webpack编译的某些阶段，通过调用Webpack对外暴露出的API来扩展Webpack的能力的。</p>
-<h3 id="清理打包后文件"><a href="#清理打包后文件" class="headerlink" title="清理打包后文件"></a>清理打包后文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; <span class="hljs-title class_">CleanWebpackPlugin</span> &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;clean-webpack-plugin&#x27;</span>)<br><br><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-attr">plugins</span>: [<br>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">CleanWebpackPlugin</span>()<br>  ]<br></code></pre></td></tr></table></figure>
+<h3 id="清理打包后文件"><a href="#清理打包后文件" class="headerlink" title="清理打包后文件"></a>清理打包后文件</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; <span class="hljs-title class_">CleanWebpackPlugin</span> &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;clean-webpack-plugin&#x27;</span>)<br><br><span class="hljs-comment">// webpack.config.js</span><br><span class="hljs-attr">plugins</span>: [<br>  <span class="hljs-keyword">new</span> <span class="hljs-title class_">CleanWebpackPlugin</span>()<br>]<br></code></pre></td></tr></table></figure>
 
 <h2 id="webpack-devServer"><a href="#webpack-devServer" class="headerlink" title="webpack devServer"></a>webpack devServer</h2><p>到目前为止，我们都是通过打包后再查看页面的效果，这样太麻烦了，每次修改后都要打包。</p>
 <p>有两种方式：</p>
@@ -595,13 +597,89 @@
 <p>在Webpack 5之前的版本里，Webpack自身没有提供持久化缓存，我们在开发时经常需要使用cache-loader或dll动态链接技术来做缓存方面的处理，这无疑提高了我们的学习成本和Webpack配置的复杂度。Webpack 5提供了持久化缓存，它通过使用文件系统缓存，极大地减少了再次编译的时间。</p>
 </li>
 </ul>
+<h2 id="Webpack构建原理"><a href="#Webpack构建原理" class="headerlink" title="Webpack构建原理"></a>Webpack构建原理</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Va4y1G7HX?p=5&amp;vd_source=a9f38e58a519cc0570c2dacd34ad7ebe">https://www.bilibili.com/video/BV1Va4y1G7HX?p=5&amp;vd_source=a9f38e58a519cc0570c2dacd34ad7ebe</a></p>
+</blockquote>
 <h1 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h1><blockquote>
-<p>ESM打包器，小巧</p>
+<p>Rollup 是一个 JavaScript 模块打包工具，可以将多个小的代码片段编译为完整的库和应用。</p>
+<p><a target="_blank" rel="noopener" href="https://www.rollupjs.com/">https://www.rollupjs.com/</a></p>
 </blockquote>
 <h1 id="Parcel"><a href="#Parcel" class="headerlink" title="Parcel"></a>Parcel</h1><blockquote>
 <p>零配置的前端打包器</p>
 </blockquote>
-<h1 id="ESBuild"><a href="#ESBuild" class="headerlink" title="ESBuild"></a>ESBuild</h1><h1 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h1>
+<h1 id="ESBuild"><a href="#ESBuild" class="headerlink" title="ESBuild"></a>ESBuild</h1><p>极速 JavaScript 打包器，速度比其它打包工具<strong>快</strong>的 10 - 100 倍。</p>
+<p>主要特性：</p>
+<ul>
+<li>极快的速度，无需缓存</li>
+<li>支持 ES6 和 CommonJS 模块</li>
+<li>支持对 ES6 模块进行 tree shaking</li>
+<li>API 可同时用于 JavaScript 和 Go</li>
+<li>兼容 TypeScript 和 JSX 语法</li>
+<li>支持 Source maps</li>
+<li>支持 Minification</li>
+<li>支持 plugins</li>
+</ul>
+<h2 id="它为什么这么快？"><a href="#它为什么这么快？" class="headerlink" title="它为什么这么快？"></a>它为什么这么快？</h2><ol>
+<li>它是用Go语言编写的，编译成可执行代码</li>
+</ol>
+<p>JavaScript必须基于解释器的node环境才能执行，所以当webpack等工具解释完本身的代码后，可能esbuild已经完成编译工作了，而这时候webpack才开始执行编译。</p>
+<p>此外，Go的核心设计是并行的，而JavaScript不是。</p>
+<p>Go有线程之间的共享内存，而JavaScript则必须在线程之间进行数据序列化。</p>
+<h2 id="webpack-中使用-ESBuild"><a href="#webpack-中使用-ESBuild" class="headerlink" title="webpack 中使用 ESBuild"></a>webpack 中使用 ESBuild</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.npmjs.com/package/esbuild-loader">https://www.npmjs.com/package/esbuild-loader</a></p>
+<p>esbuild-loader: Speed up your Webpack build with esbuild! 🔥</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js">npm i -D esbuild-loader<br></code></pre></td></tr></table></figure>
+
+<p>Use esbuild-loader to transform new JavaScript syntax to support older browsers, and TypeScript to JavaScript.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// webpack.config.js</span><br><br>  <span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>    <span class="hljs-attr">module</span>: &#123;<br>      <span class="hljs-attr">rules</span>: [<br>        <span class="hljs-comment">// &#123;</span><br>        <span class="hljs-comment">//   test: /\.js$/,</span><br>        <span class="hljs-comment">//   use: &#x27;babel-loader&#x27;</span><br>        <span class="hljs-comment">// &#125;,</span><br>        <span class="hljs-comment">// &#123;</span><br>        <span class="hljs-comment">//   test: /\.tsx?$/,</span><br>        <span class="hljs-comment">//   use: &#x27;ts-loader&#x27;</span><br>        <span class="hljs-comment">// &#125;,</span><br>        &#123;<br>          <span class="hljs-comment">// Match js, jsx, ts &amp; tsx files</span><br>          <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.[jt]sx?$/</span>,<br>          <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;esbuild-loader&#x27;</span>,<br>          <span class="hljs-attr">options</span>: &#123;<br>            <span class="hljs-comment">// JavaScript version to compile to</span><br>            <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;es2015&#x27;</span><br>          &#125;<br>        &#125;,<br><br>        ...<br>      ],<br>    &#125;,<br>  &#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="webpack-中使用-esbuild-来压缩-JS-代码"><a href="#webpack-中使用-esbuild-来压缩-JS-代码" class="headerlink" title="webpack 中使用 esbuild 来压缩 JS 代码"></a>webpack 中使用 esbuild 来压缩 JS 代码</h2><p>You can replace JS minifiers like Terser or UglifyJs. </p>
+<p>In webpack.config.js:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> &#123; <span class="hljs-title class_">EsbuildPlugin</span> &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;esbuild-loader&#x27;</span>)<br><br>  <span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>    ...,<br>    <span class="hljs-attr">optimization</span>: &#123;<br>      <span class="hljs-attr">minimizer</span>: [<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">EsbuildPlugin</span>(&#123;<br>          <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;es2015&#x27;</span><br>        &#125;)<br>      ]<br>    &#125;,<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="webpack-中使用-esbuild-来压缩-css-代码"><a href="#webpack-中使用-esbuild-来压缩-css-代码" class="headerlink" title="webpack 中使用 esbuild 来压缩 css 代码"></a>webpack 中使用 esbuild 来压缩 css 代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// webpack.config.js</span><br><br><span class="hljs-keyword">const</span> &#123; <span class="hljs-title class_">EsbuildPlugin</span> &#125; = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;esbuild-loader&#x27;</span>)<br><span class="hljs-keyword">const</span> <span class="hljs-title class_">MiniCssExtractPlugin</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;mini-css-extract-plugin&#x27;</span>);<br><br><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>  <span class="hljs-attr">optimization</span>: &#123;<br>    <span class="hljs-attr">minimizer</span>: [<br>      <span class="hljs-keyword">new</span> <span class="hljs-title class_">EsbuildPlugin</span>(&#123;<br>        <span class="hljs-attr">target</span>: <span class="hljs-string">&#x27;es2015&#x27;</span>,<br>        <span class="hljs-attr">css</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 压缩 css</span><br>      &#125;)<br>    ]<br>  &#125;,<br>  <span class="hljs-attr">module</span>: &#123;<br>    <span class="hljs-attr">rules</span>: [<br>      &#123;<br>        <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/i</span>,<br>        <span class="hljs-attr">use</span>: [<br>          <span class="hljs-title class_">MiniCssExtractPlugin</span>.<span class="hljs-property">loader</span>,<br>          <span class="hljs-string">&#x27;css-loader&#x27;</span><br>        ]<br>      &#125;<br>    ]<br>  &#125;,<br>  <span class="hljs-attr">plugins</span>: [<br>    <span class="hljs-keyword">new</span> <span class="hljs-title class_">MiniCssExtractPlugin</span>()<br>  ]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>如果你的 CSS 不是作为 CSS 文件发出的，而是使用类似 style-loader 的东西通过 JS 加载的，那么你可以使用 loader 进行压缩。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = &#123;<br>   ...,<br><br>   <span class="hljs-attr">module</span>: &#123;<br>     <span class="hljs-attr">rules</span>: [<br>       &#123;<br>         <span class="hljs-attr">test</span>: <span class="hljs-regexp">/\.css$/i</span>,<br>         <span class="hljs-attr">use</span>: [<br>           <span class="hljs-string">&#x27;style-loader&#x27;</span>,<br>           <span class="hljs-string">&#x27;css-loader&#x27;</span>,<br>           &#123;<br>             <span class="hljs-attr">loader</span>: <span class="hljs-string">&#x27;esbuild-loader&#x27;</span>,<br>             <span class="hljs-attr">options</span>: &#123;<br>               <span class="hljs-attr">minify</span>: <span class="hljs-literal">true</span><br>             &#125;<br>           &#125;<br>         ]<br>       &#125;<br>     ]<br>   &#125;<br> &#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h1><blockquote>
+<p><a target="_blank" rel="noopener" href="https://vitejs.cn/">https://vitejs.cn/</a></p>
+<p>下一代前端开发与构建工具</p>
+</blockquote>
+<p>Vite 使用 esbuild 预构建依赖。</p>
+<p>特性：</p>
+<ul>
+<li><p>💡 极速的服务启动<br>使用原生 ESM 文件，无需打包!</p>
+</li>
+<li><p>⚡️ 轻量快速的热重载<br>无论应用程序大小如何，都始终极快的模块热重载（HMR）</p>
+</li>
+<li><p>🛠️ 丰富的功能<br>对 TypeScript、JSX、CSS 等支持开箱即用。</p>
+</li>
+<li><p>📦 优化的构建<br>可选 “多页应用” 或 “库” 模式的预配置 Rollup 构建</p>
+</li>
+<li><p>🔩 通用的插件<br>在开发和构建之间共享 Rollup-superset 插件接口。</p>
+</li>
+<li><p>🔑 完全类型化的API<br>灵活的 API 和完整 TypeScript 类型。</p>
+</li>
+</ul>
+<p>像 webpack 等打包器，在开发时，是先将我们的构建内容放到内存中，这样它们只需要在文件更改时使模块图的一部分失活，但它也仍需要整个重新构建并重载页面。</p>
+<p>Vite 以 原生 ESM 方式提供源码。这实际上是让浏览器接管了打包程序的部分工作：Vite 只需要在浏览器请求源码时进行转换并按需提供源码。根据情景动态导入代码，即只在当前屏幕上实际使用时才会被处理。</p>
+<p>Vite 同时利用 HTTP 头来加速整个页面的重新加载（再次让浏览器为我们做更多事情）：源码模块的请求会根据 304 Not Modified 进行协商缓存，而依赖模块请求则会通过 Cache-Control: max-age=31536000,immutable 进行强缓存，因此一旦被缓存它们将不需要再次请求。</p>
+<h2 id="为什么生产环境还需要打包？"><a href="#为什么生产环境还需要打包？" class="headerlink" title="为什么生产环境还需要打包？"></a>为什么生产环境还需要打包？</h2><p>尽管原生 ESM 现在得到了广泛支持，<code>但由于嵌套导入会导致额外的网络往返</code>，在生产环境中发布未打包的 ESM 仍然效率低下（即使使用 HTTP/2）。</p>
+<p>为了在生产环境中获得最佳的加载性能，最好还是将代码进行 tree-shaking、懒加载和 chunk 分割（以获得更好的缓存）。</p>
+<h2 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h2><p>用于生产环境的构建包会假设目标浏览器支持现代 JavaScript 语法。默认情况下，Vite 的目标是能够支持原生 ESM script 标签、支持原生 ESM 动态导入 和 import.meta 的浏览器：</p>
+<ul>
+<li>Chrome &gt;=87</li>
+<li>Firefox &gt;=78</li>
+<li>Safari &gt;=14</li>
+<li>Edge &gt;=88</li>
+</ul>
+<p>你也可以通过 build.target 配置项 指定构建目标，最低支持 es2015。</p>
+<h1 id="参考资源"><a href="#参考资源" class="headerlink" title="参考资源"></a>参考资源</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1GN4y1M7P5/?spm_id_from=333.337.search-card.all.click&vd_source=a9f38e58a519cc0570c2dacd34ad7ebe">从0到1学习 vite</a></li>
+</ul>
+
             </div>
             <hr>
             <div>
